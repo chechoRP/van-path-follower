@@ -211,7 +211,7 @@ public class PathFollowerManager implements PathFollowerService {
 		
 		MutableMatch match = createMatch(PV)
 							 .addField(createBasicField(PV, ETH_TYPE, EthernetType.IPv4))
-							 .addField(createBasicField(PV, IP_DSCP, 56));
+							 .addField(createBasicField(PV, IP_DSCP, 4));
 		
 		OfmMutableFlowMod flow = (OfmMutableFlowMod) 
 						MessageFactory.create(PV,MessageType.FLOW_MOD, FlowModCommand.ADD);
@@ -245,14 +245,11 @@ public class PathFollowerManager implements PathFollowerService {
         	
         	if (packet.has(ProtocolId.IP)) {
         		Ip ipPacket = packet.get(ProtocolId.IP);
-        		if (ipPacket.tosDsfc().code() == 56) {
-        			log.info("event on switch id: {}", temp_dpid.toString()); 
-        		}
-        		
+        		if (ipPacket.tosDsfc().code() == 4) {
+        			log.info("event on switch id: {}. packet with TOS field 0x4.", temp_dpid.toString()); 
+        			ctx.packetOut().block(); // TODO: change this to an appropriate action later.
+        		}	
         	}
-        	// TODO: if its DSCP is a certain value, first print a message.
         }
 	}
-
-
 }
