@@ -1,0 +1,5 @@
+id=com.uky.pf
+name=Viplanes Path Follower
+version=1.0.0.SNAPSHOT
+vendor=uky
+description=Application that follows installed viplanes paths
