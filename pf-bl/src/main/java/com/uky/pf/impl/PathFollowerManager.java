@@ -97,13 +97,9 @@ public class PathFollowerManager implements PathFollowerService {
 	private static final String PASSWD = "password";
 	private static final String DEBUG_STEAL_CLASS = "com.uky.pf.debugsteal";
 	private static final String DEBUG_STEAL_DESC = "Used to steal debug packets";
-
-
-
 	
 	private FlowClass debugStealClass;
-	
-	
+		
     /**
      * Controller listeners
      */
