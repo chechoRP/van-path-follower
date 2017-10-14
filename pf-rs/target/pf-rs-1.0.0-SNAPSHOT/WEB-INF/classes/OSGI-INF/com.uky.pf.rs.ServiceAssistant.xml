@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="com.uky.pf.rs.ServiceAssistant">
+    <implementation class="com.uky.pf.rs.ServiceAssistant"/>
+    <property name="service.pid" value="com.uky.pf.rs.ServiceAssistant"/>
+    <reference name="PathFollowerService" interface="com.uky.pf.api.PathFollowerService" cardinality="0..n" policy="dynamic" bind="bindPathFollowerService" unbind="unbindPathFollowerService"/>
+</scr:component>

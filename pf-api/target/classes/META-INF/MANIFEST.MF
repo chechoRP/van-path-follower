@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1508009669386
+Build-Jdk: 1.8.0_144
+Built-By: mhaya2
+Bundle-Description: Viplanes Path Follower - interface definitions modul
+ e
+Bundle-ManifestVersion: 2
+Bundle-Name: pf-api
+Bundle-SymbolicName: com.uky.pf.pf-api
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.uky.pf.api;version="1.0.0.SNAPSHOT"
+Tool: Bnd-1.50.0

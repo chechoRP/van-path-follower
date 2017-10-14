@@ -94,7 +94,7 @@ public class PathFollowerManager implements PathFollowerService {
 	/**
 	 * FlowClass infoOxmBasicFieldTypermation
 	 */
-	private static final String PASSWD = "password";
+	private static final String PASSWD = "skyline99";
 	private static final String DEBUG_STEAL_CLASS = "com.uky.pf.debugsteal";
 	private static final String DEBUG_STEAL_DESC = "Used to steal debug packets";
 	
