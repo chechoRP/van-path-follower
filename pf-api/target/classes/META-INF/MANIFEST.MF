@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1508009669386
+Bnd-LastModified: 1508010405887
 Build-Jdk: 1.8.0_144
 Built-By: mhaya2
 Bundle-Description: Viplanes Path Follower - interface definitions modul

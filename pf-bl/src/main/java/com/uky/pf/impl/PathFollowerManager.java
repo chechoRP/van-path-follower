@@ -180,11 +180,11 @@ public class PathFollowerManager implements PathFollowerService {
 	 * @param rule  (rule to be pushed)
 	 */
     private void addRule(DataPathId dpid, OfmFlowMod rule, FlowClass purpose) {
-		log.debug("Adding rule to switch {}", dpid);
+		log.info("Adding rule to switch {}", dpid);
 		try {
 			cs.sendFlowMod(rule, dpid, purpose);
 		} catch (OpenflowException e) {
-			log.warn("Unable to add rule", rule, dpid);
+			log.info("Unable to add rule", rule, dpid);
 		}
 		
 	}
