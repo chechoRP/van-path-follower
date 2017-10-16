@@ -72,7 +72,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Sample PathFollower service implementation.
  */
-@Component
+@Component(immediate = true)
 @Service
 public class PathFollowerManager implements PathFollowerService {
 
@@ -94,11 +94,11 @@ public class PathFollowerManager implements PathFollowerService {
 	/**
 	 * FlowClass infoOxmBasicFieldTypermation
 	 */
-	private static final String PASSWD = "skyline99";
-	private static final String DEBUG_STEAL_CLASS = "com.uky.pf.debugsteal";
-	private static final String DEBUG_STEAL_DESC = "Used to steal debug packets";
+//	private static final String PASSWD = "skyline99";
+//	private static final String DEBUG_STEAL_CLASS = "com.uky.pf.debugsteal";
+//	private static final String DEBUG_STEAL_DESC = "Used to steal debug packets";
 	
-	private FlowClass debugStealClass;
+//	private FlowClass debugStealClass;
 		
     /**
      * Controller listeners
@@ -119,10 +119,10 @@ public class PathFollowerManager implements PathFollowerService {
         	this.cs = cs;
         	
         	// Register our intent to steal debug packets
-        	debugStealClass = new FlowClassRegistrator(DEBUG_STEAL_CLASS, PASSWD, DEBUG_STEAL_DESC)
-        				   	  .fields(ETH_TYPE, IP_DSCP)
-        				   	  .actions(STEAL)
-        				   	  .register(cs);
+  //      	debugStealClass = new FlowClassRegistrator(DEBUG_STEAL_CLASS, PASSWD, DEBUG_STEAL_DESC)
+  //      				   	  .fields(ETH_TYPE, IP_DSCP)
+  //     				   	  .actions(STEAL)
+  //      				   	  .register(cs);
         	
             cs.addPacketListener(packetListener, PacketListenerRole.DIRECTOR, DIRECTOR_ALTITUDE, DIR_INTEREST);
             
@@ -132,7 +132,7 @@ public class PathFollowerManager implements PathFollowerService {
     /** Unbind hook for the controller service. */
     public void unbindControllerService(ControllerService cs) {
         if (this.cs == cs) {
-        	cs.unregisterFlowClass(debugStealClass, PASSWD); 
+//        	cs.unregisterFlowClass(debugStealClass, PASSWD); 
             cs.removePacketListener(packetListener);
             this.cs = null;
         }
@@ -161,7 +161,7 @@ public class PathFollowerManager implements PathFollowerService {
 	 */
 	private void pushDebugStealRules() {
 		for (DataPathInfo dpi : cs.getAllDataPathInfo()) {
-			addRule(dpi.dpid(), createDebugSteal(), debugStealClass);
+			addRule(dpi.dpid(), createDebugSteal(), FlowClass.UNSPECIFIED);
 		}
 	}
 	
